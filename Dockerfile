@@ -1,17 +1,15 @@
-# Usar una imagen base de OpenJDK
-FROM openjdk:17-jdk-slim
+# Use the Eclipse alpine official image
+# https://hub.docker.com/_/eclipse-temurin
+FROM eclipse-temurin:21-jdk-alpine
 
-# Establecer el directorio de trabajo dentro del contenedor
+# Create and change to the app directory.
 WORKDIR /app
 
-COPY . .
+# Copy files to the container image
+COPY . ./
 
-RUN ./mvnw clean package
-RUN ls -la
-COPY /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
-RUN cd /app/target && ls 
-# Exponer el puerto en el que la aplicación se ejecuta
-EXPOSE 8080
+# Build the app.
+RUN ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
 
-# Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the app by dynamically finding the JAR file in the target directory
+CMD ["sh", "-c", "java -jar target/*.jar"]
