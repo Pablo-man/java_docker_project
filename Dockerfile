@@ -7,9 +7,9 @@ WORKDIR /app
 COPY . .
 
 RUN ./mvnw clean package
-
+RUN ls -la
 COPY /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
-
+RUN cd /app/target && ls 
 # Exponer el puerto en el que la aplicación se ejecuta
 EXPOSE 8080
 
