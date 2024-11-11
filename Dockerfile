@@ -6,9 +6,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN ./mvnw -B -DskipTests clean package
+RUN ./mvnw clean package
 
-COPY --from=build /app/target/*.jar app.jar
+COPY /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
 
 # Exponer el puerto en el que la aplicación se ejecuta
 EXPOSE 8080
