@@ -26,6 +26,10 @@ Web application that deploys a web server using spring boot and sets up a simple
     > By default the application will be deployed on port `8080`, if it is necessary to change it to another one you must include the following code `server.port=<PORTNUMBER>` in your configuration file **application.properties**
 
 ## :rocket: How to run with docker
+### Pre-requisites
+* Docker - DockerDesktop installed
+* DockerHub account
+---
 Visit the following link to learn about the process of generating the project image
 
 :whale2: [GO](https://hub.docker.com/repository/docker/pamendeza/java_docker_project "Docker steps")
@@ -40,8 +44,8 @@ The platform automatically uses our Dockerfile to build the container.
 ![Build Container](./public/img/dockerFile.png "Build Configuration")
 
 > [!IMPORTANT]
-> Next, the configuration that we must add is the generation of a domain along with the desired port, in this case the indicated thing would be to point to port 80 on which nginx is working
+> The public url must be generated, it automatically assigns us port 8080
 
 ![Generate Domain](./public/img/domain.png "Domain")
 
-[Hello World](https://jsproyectdocker-production.up.railway.app "click for visit")
+[Hello World](https://javadockerproject-production-2adf.up.railway.app "click for visit")
