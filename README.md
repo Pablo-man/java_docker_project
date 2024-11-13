@@ -1,48 +1,36 @@
 # Hello world whit java
 ## Results
 <p align="center">
-    <img src="./public/img/helloJava.png" alt="Hello from javascript">
+    <img src="./public/img/helloJava.png" alt="Hello from java">
 </p>
 
-It is a program that use SpringBoot for deploy a basic web server and presents a typical hello world message
+Web application that deploys a web server using spring boot and sets up a simple api with a get route that displays the message **hello world with java**
 
 ## :open_book: How to use
-* Clone the repository
+### Pre-requisites
+   * Intellij IDEA
+   * jdk-17
+   * maven
+---
 
+* Clone the repository
     ```
     git clone https://github.com/Pablo-man/java_docker_project.git
     ```
-> [!NOTE]
-> Because the application is made up of statistical files, these must be served on a web server, so the VSCode code editor will be used together with the live server extension in this example.
+* Open the program with the Intellij IDEA editor
+* Using the integrated maven tool in the editor, load the project dependencies and clean the program.
+* Go to the DemoApplication.java class and run the main class
+* Visit your `localhost:8080` to view the results
 
-* Once the project has been cloned, you must open it with the VSCode code editor with the Live Server extension previously installed
+    > [!TIP]
+    > By default the application will be deployed on port `8080`, if it is necessary to change it to another one you must include the following code `server.port=<PORTNUMBER>` in your configuration file **application.properties**
 
-* Inside the editor, open the index.html file and press the button corresponding to the mentioned extension, which is located in the lower right area of ​​the editor window
+## :rocket: How to run with docker
+Visit the following link to learn about the process of generating the project image
 
-    ![LiveServerIconStart](./public/img/liverServer.png "Deploy page")
+:whale2: [GO](https://hub.docker.com/repository/docker/pamendeza/java_docker_project "Docker steps")
 
-## :rocket: How to run in docker
-### Pre-requisites
-* Docker - DockerDesktop installed
-* DockerHub account
-### Download image
-```
-docker pull pamendeza/hellojavascript
-```
-> [!IMPORTANT]
-> By default, the port mapping of 80 that belongs to the nginx server is placed with 8080 corresponding to the computer. If it is required to deploy it on a different port, only 8080 must be modified for another desired port.
-### Run image
-```
-docker run --name <NEWCONTAINERNAME> -d -p 8080:80 <IMAGENAME>
-```
-> [!TIP]
-> The name of the downloaded image must match the one placed in the previous command, for this you can verify it using the **docker images** command. Additionally, you must check that there is no other container with the same name as the one placed in the command.
-### View the results
-Open new window browser and search localhost:8080
-
-[View results](#results)
-
-## :light_rail: PAAS Deploy with docker (Railway)
+## :light_rail: PAAS Deploy(Railway)
 For its deployment in a PAAS we will rely on railway and its easy implementation thanks to its container management. 
 
 ![Railway Service](./public/img/railwayDeploy.png "Service")
